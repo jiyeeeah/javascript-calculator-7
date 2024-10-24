@@ -7,7 +7,9 @@ const CalculateUtil = {
     if (input.match(customSeparatorRegExp)) {
       const customSeparators = input.substring(2, input.indexOf("\\")).split("");
       const separator = [...customSeparators, ...BASIC_SEPARATOR];
-      const expression = input.substring(input.indexOf("n") + 1);
+
+      const findNumberIndex = input.search(/[0-9]/);
+      const expression = input.substring(findNumberIndex);
 
       return { separator, expression };
     }
