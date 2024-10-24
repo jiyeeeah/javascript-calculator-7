@@ -2,20 +2,17 @@ import BASIC_SEPARATOR from "./constants/basicSeparator";
 
 const CalculateUtil = {
   parseInput(input) {
-    const separator = [...BASIC_SEPARATOR];
     const customSeparatorRegExp = /(\/\/).+(\\n)/;
 
     if (input.match(customSeparatorRegExp)) {
-      input
-        .substring(2, input.indexOf("\\"))
-        .split("")
-        .map((sep) => separator.push(sep));
+      const customSeparators = input.substring(2, input.indexOf("\\")).split("");
+      const separator = [...customSeparators, ...BASIC_SEPARATOR];
       const expression = input.substring(input.indexOf("n") + 1);
+
       return { separator, expression };
     }
 
-    const expression = input;
-    return { separator, expression };
+    return { separator: [...BASIC_SEPARATOR], expression: input };
   },
 
   sumExpression(separator, expression) {
