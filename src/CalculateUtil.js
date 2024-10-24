@@ -3,9 +3,9 @@ import BASIC_SEPARATOR from "./constants/basicSeparator";
 const CalculateUtil = {
   parseInput(input) {
     const separator = [...BASIC_SEPARATOR];
-    const re = /(\/\/).+(\\n)/;
+    const customSeparatorRegExp = /(\/\/).+(\\n)/;
 
-    if (input.match(re)) {
+    if (input.match(customSeparatorRegExp)) {
       input
         .substring(2, input.indexOf("\\"))
         .split("")
