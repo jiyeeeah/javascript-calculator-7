@@ -1,9 +1,6 @@
 export function isSeparatorsValid(separators) {
-  for (const separator of separators) {
-    if (!isNaN(separator)) return false;
-    if (separator === "-" || separator === ".") return false;
-  }
-  return true;
+  const regex = /[^0-9-.]/;
+  return separators.every((sep) => regex.test(sep));
 }
 
 export function isExpressionValid(separator, expression) {
