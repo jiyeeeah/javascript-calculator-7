@@ -7,8 +7,7 @@ export function isSeparatorsValid(separators) {
 }
 
 export function isExpressionValid(separator, expression) {
-  const expressionArr = expression.split("");
-  for (const str of expressionArr) {
+  for (const str of expression) {
     if (!separator.includes(str) && isNaN(str)) return false;
     if (str < 0) return false;
   }
