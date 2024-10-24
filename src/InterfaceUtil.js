@@ -2,9 +2,9 @@ import { Console } from "@woowacourse/mission-utils";
 import MESSAGES from "./constants/messages.js";
 
 const InterfaceUtil = {
-  async inputString() {
+  inputStringAsync() {
     try {
-      return await Console.readLineAsync(MESSAGES.INPUT);
+      return Console.readLineAsync(MESSAGES.INPUT);
     } catch (error) {
       throw new Error(MESSAGES.ERROR);
     }

@@ -5,7 +5,7 @@ import MESSAGES from "./constants/messages.js";
 
 class App {
   async run() {
-    const input = await InterfaceUtil.inputString();
+    const input = await InterfaceUtil.inputStringAsync();
 
     const { separator, expression } = CalculateUtil.parseInput(input);
     if (!isSeparatorsValid(separator)) throw new Error(MESSAGES.ERROR);
